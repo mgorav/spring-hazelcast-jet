@@ -51,5 +51,10 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
     - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
     
  ## Live Event Processing Using Hazelcast JET
- Run EventVolumeUI
+ The project shows two scenarios:
+ - Sliding Window
+ - Aggregation
+ 
+ Run EventVolumeUI to see things in action:
+ 
  ![Swagger](./EventProcessing.gif) 
