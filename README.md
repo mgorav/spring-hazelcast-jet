@@ -29,3 +29,25 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
 - Possibilities
 ![Swagger](./StreamingBatchProcessing.png) 
 - Pipeline APIs
+   - General purpose, declarative API
+   - Support fork,join,cogroup,map,filter,flatmap,reduce,groupby
+   - source/sink programming model
+   - DSL which through planner and converted to DAG plan for execution
+   - Batch & streaming
+- Adds distributed support for the java.util.stream API for Hazelcast Map, List and Cache
+  - supports operations such as map(), flatmap(), filter(), reduce(), collect(), sorted(), distrinct()
+  - lambda serialization is solved by creating Serializable verions of interface
+  - java streams are converted to Processor API (DAG) for execution
+- Custom processors
+  - unified API for sinks, sources and intermediate steps
+  - not required to be thread safe
+  - each processor has an Inbox and Outbox per inbound and outbound edge
+  - two main methods to implement
+    - boolean tryProcess (int ordinal,Object item)
+      - process incoming item and emit new items by populating the outbox
+    - boolean complete()
+       - called after all upstream processor are also completed. Typically used for sources and batch operations such as group by and distict
+    - no-coperative processors may block indefintely
+    - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
+    
+      
