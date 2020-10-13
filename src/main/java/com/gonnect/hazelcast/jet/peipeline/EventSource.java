@@ -182,7 +182,7 @@ public final class EventSource {
 
         private static List<String> loadTickers(long numTickers) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    EventSource.class.getResourceAsStream("/nasdaqlisted.txt"), UTF_8))) {
+                    EventSource.class.getResourceAsStream("/events.txt"), UTF_8))) {
                 return reader.lines()
                         .skip(1)
                         .limit(numTickers)

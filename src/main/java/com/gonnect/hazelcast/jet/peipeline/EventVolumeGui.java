@@ -57,7 +57,7 @@ public class EventVolumeGui {
 
     private CategoryPlot createChartFrame(CategoryDataset dataset) {
         JFreeChart chart = ChartFactory.createBarChart(
-                "Trading Volume", "Stock", "Volume, USD", dataset,
+                "Event Volume", "Event Stock", "Volume, Unit", dataset,
                 PlotOrientation.HORIZONTAL, true, true, false);
         CategoryPlot plot = chart.getCategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
