@@ -23,16 +23,8 @@ import static java.util.stream.Collectors.toMap;
 public final class EventSource {
 
     /**
-     * Returns a source of an unbounded stream of trade events. The
-     * quantity of the returned trades will be a random multiple of an
-     * internal lot size ({@value TradeGenerator#LOT}). The price will also be
-     * randomized, but not as an absolute value, but as a value with
-     * randomly varying change trends up or down. Both the price and the
-     * quantity are always positive.
-     * <p>
      * The trades will be generated at the specified rate per second and
      * their tickers will be from a limited set of names.
-     * <p>
      * The event time of the generated trades will be evenly spaced
      * across physical time, as dictated by the trades-per-second
      * generation rate (ie. no disorder will be introduced by the source).

@@ -16,8 +16,6 @@ import static com.hazelcast.jet.aggregate.AggregateOperations.counting;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
- * Showcases the Sliding Window Aggregation operator of the Pipeline API.
- * <p>
  * The sample starts a thread that randomly generates trade events and
  * puts them into a Hazelcast Map. The Jet job receives these events and
  * calculates for each stock the number of trades completed within the

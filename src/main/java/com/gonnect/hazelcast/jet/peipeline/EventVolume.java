@@ -10,8 +10,6 @@ import static com.hazelcast.jet.aggregate.AggregateOperations.summingLong;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
- * Showcases the Rolling Aggregation operator of the Pipeline API.
- * <p>
  * The sample Jet pipeline uses a mock data source that generates random
  * trade events. It calculates for each stock the rolling sum of the amount
  * of stock that changed hands trading it (i.e., the current traded volume

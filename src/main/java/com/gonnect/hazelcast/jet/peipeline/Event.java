@@ -5,9 +5,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Information about a specific trade event that took place on a
- * financial exchange or any other kind of market.
- * <p>
  * A "trade event" is defined as the action by which one market
  * participant sells a certain amount (the "quantity") of a financial
  * instrument (the "ticker", most often a stock specified as the

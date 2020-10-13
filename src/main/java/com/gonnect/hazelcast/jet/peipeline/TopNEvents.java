@@ -22,16 +22,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static java.util.stream.Collectors.joining;
 
 /**
- * Shows how perform nested aggregation. The sample allows you to monitor
- * the current best and worst performers of a stock market by tracking the
- * movement of all the stock prices. It takes two levels of aggregation to
- * achieve this:
- * <ol><li>
- *     calculate the linear trend of stock price over a sliding window
- * </li><li>
- *     take each sliding window result (one item per traded stock) and
- *     find the items with the top/bottom values of the linear trend
- * </li></ol>
  * All the items belonging to a given position of the sliding window have
  * the same timestamp (time when the window ends). The second-level
  * aggregation must set up its window so that a single window position
