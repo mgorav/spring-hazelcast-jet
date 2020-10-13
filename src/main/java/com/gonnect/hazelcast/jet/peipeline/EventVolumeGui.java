@@ -68,7 +68,7 @@ public class EventVolumeGui {
         JFrame frame = new JFrame();
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setTitle("Hazelcast Jet Source Builder Sample");
+        frame.setTitle("Hazelcast Jet Source");
         frame.setBounds(WINDOW_X, WINDOW_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setLayout(new BorderLayout());
         frame.add(new ChartPanel(chart));
