@@ -33,6 +33,15 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
    - Support fork,join,cogroup,map,filter,flatmap,reduce,groupby
    - source/sink programming model
    - DSL which through planner and converted to DAG plan for execution
+   ```bash
+  digraph DAG {
+  	"trade-source" [localParallelism=1];
+  	"map-stateful-keyed" [localParallelism=16];
+  	"mapSink(volume-by-stock)" [localParallelism=1];
+  	"trade-source" -> "map-stateful-keyed" [label="distributed-partitioned", queueSize=1024];
+  	"map-stateful-keyed" -> "mapSink(volume-by-stock)" [label="partitioned", queueSize=1024];
+  }
+  ```
    - Batch & streaming
 - Adds distributed support for the java.util.stream API for Hazelcast Map, List and Cache
   - supports operations such as map(), flatmap(), filter(), reduce(), collect(), sorted(), distrinct()
