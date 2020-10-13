@@ -1,4 +1,4 @@
-## Hazelcast Jet + Spring BOOT
+## Hazelcast Jet + Spring BOOT + Event Processing (Micro-Service)
 
 Spring BOOT + Hazelcast Jet based streaming pipeline example. This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
 
