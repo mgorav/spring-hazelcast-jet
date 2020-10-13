@@ -34,6 +34,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
    - source/sink programming model
    - DSL which through planner and converted to DAG plan for execution
    ```bash
+   Start executing job '051c-b771-6680-0001', execution 051c-b771-6681-0001, execution graph in DOT format:
   digraph DAG {
   	"trade-source" [localParallelism=1];
   	"map-stateful-keyed" [localParallelism=16];
