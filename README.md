@@ -15,7 +15,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
 - Cloud native
 - Distributed in-memory computation
 - Data processing micro-services pardigm
-= Spark Vs Jet
+- Spark Vs Jet
 ![Swagger](./performance.png) 
 - Supports for events arriving out of order via watermarks
 - Sliding, Tumbling & Session window support
@@ -28,3 +28,4 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
 ![Swagger](./performance-guarantees.png) 
 - Possibilities
 ![Swagger](./StreamingBatchProcessing.png) 
+- Pipeline APIs
