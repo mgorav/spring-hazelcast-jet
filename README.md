@@ -1,6 +1,6 @@
-## Hazelcast Jet + Spring BOOT + Event Processing (Micro-Service)
+## Hazelcast Jet + Spring BOOT + Event Processing (Micro-Service) = Low Cost With High Performance Event Processing
 
-Spring BOOT + Hazelcast Jet based streaming pipeline example. This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
+This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
 
 ```bash
 http://localhost:8080/swagger-ui/index.html
@@ -14,7 +14,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
 - Very small deployment foot prints
 - Cloud native
 - Distributed in-memory computation
-- Data processing micro-services pardigm
+- Data processing micro-services paradigm
 - Spark Vs Jet
 ![Swagger](./performance.png) 
 - Supports for events arriving out of order via watermarks
