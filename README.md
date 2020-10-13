@@ -50,4 +50,6 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
     - no-coperative processors may block indefintely
     - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
     
-      
+ ## Live Event Processing Using Hazelcast JET
+ Run EventVolumeUI
+ ![Swagger](./EventProcessing.gif) 
