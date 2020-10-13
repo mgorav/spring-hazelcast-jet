@@ -24,7 +24,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * duration of a sliding window. It outputs the results to the console
  * log.
  */
-public class StockExchange {
+public class PipelineExchange {
 
     private static final int SLIDING_WINDOW_LENGTH_MILLIS = 3_000;
     private static final int SLIDE_STEP_MILLIS = 500;
@@ -35,9 +35,9 @@ public class StockExchange {
     private static Pipeline buildPipeline() {
         Pipeline p = Pipeline.create();
 
-        p.readFrom(TradeSource.tradeStream(NUMBER_OF_TICKERS, TRADES_PER_SEC))
+        p.readFrom(EventSource.tradeStream(NUMBER_OF_TICKERS, TRADES_PER_SEC))
                 .withNativeTimestamps(3000)
-                .groupingKey(Trade::getTicker)
+                .groupingKey(Event::getTicker)
                 .window(WindowDefinition.sliding(SLIDING_WINDOW_LENGTH_MILLIS, SLIDE_STEP_MILLIS))
                 .aggregate(counting())
                 .writeTo(Sinks.logger(wr -> String.format("%s %5s %4d", toLocalTime(wr.end()), wr.key(), wr.result())));

@@ -18,7 +18,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * on that stock). The sample also starts a GUI window that visualizes the
  * rising traded volume of all stocks.
  */
-public class TradingVolume {
+public class EventVolume {
 
     private static final String VOLUME_MAP_NAME = "volume-by-stock";
     private static final int TRADES_PER_SEC = 3_000;
@@ -27,17 +27,17 @@ public class TradingVolume {
 
     private static Pipeline buildPipeline() {
         Pipeline p = Pipeline.create();
-        p.readFrom(TradeSource.tradeStream(NUMBER_OF_TICKERS, TRADES_PER_SEC))
+        p.readFrom(EventSource.tradeStream(NUMBER_OF_TICKERS, TRADES_PER_SEC))
                 .withoutTimestamps()
-                .groupingKey(Trade::getTicker)
-                .rollingAggregate(summingLong(Trade::getQuantity))
+                .groupingKey(Event::getTicker)
+                .rollingAggregate(summingLong(Event::getQuantity))
                 .writeTo(Sinks.map(VOLUME_MAP_NAME));
         return p;
     }
 
     public static void main(String[] args) throws Exception {
         JetInstance jet = Jet.bootstrappedInstance();
-        new TradingVolumeGui(jet.getMap(VOLUME_MAP_NAME));
+        new EventVolumeGui(jet.getMap(VOLUME_MAP_NAME));
         try {
             Job job = jet.newJob(buildPipeline());
             SECONDS.sleep(DURATION_SECONDS);

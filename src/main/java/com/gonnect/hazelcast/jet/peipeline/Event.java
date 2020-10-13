@@ -14,14 +14,14 @@ import java.util.Objects;
  * short name of the company), to another market participant, at a
  * certain price.
  */
-public class Trade implements Serializable {
+public class Event implements Serializable {
 
     private final long time;
     private final String ticker;
     private final long quantity;
     private final long price;
 
-    Trade(long time, @Nonnull String ticker, long quantity, long price) {
+    Event(long time, @Nonnull String ticker, long quantity, long price) {
         this.time = time;
         this.ticker = Objects.requireNonNull(ticker);
         this.quantity = quantity;

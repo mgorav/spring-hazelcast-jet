@@ -20,7 +20,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
-public final class TradeSource {
+public final class EventSource {
 
     /**
      * Returns a source of an unbounded stream of trade events. The
@@ -43,7 +43,7 @@ public final class TradeSource {
      * @throws IllegalArgumentException if tradePerSec is smaller than 1
      */
     @Nonnull
-    public static StreamSource<Trade> tradeStream(int tradesPerSec) {
+    public static StreamSource<Event> tradeStream(int tradesPerSec) {
         return tradeStream(Integer.MAX_VALUE, tradesPerSec, 0);
     }
 
@@ -72,7 +72,7 @@ public final class TradeSource {
      *                                  smaller than 1
      */
     @Nonnull
-    public static StreamSource<Trade> tradeStream(int numTickers, int tradesPerSec) {
+    public static StreamSource<Event> tradeStream(int numTickers, int tradesPerSec) {
         return tradeStream(numTickers, tradesPerSec, 0);
     }
 
@@ -106,7 +106,7 @@ public final class TradeSource {
      *                                  smaller than 1
      */
     @Nonnull
-    public static StreamSource<Trade> tradeStream(int numTickers, int tradesPerSec, int maxLag) {
+    public static StreamSource<Event> tradeStream(int numTickers, int tradesPerSec, int maxLag) {
         if (numTickers <= 0) {
             throw new IllegalArgumentException("Number of tickers has to be at least 1");
         }
@@ -145,7 +145,7 @@ public final class TradeSource {
             this.startTimeMillis = System.currentTimeMillis();
         }
 
-        private void generateTrades(TimestampedSourceBuffer<Trade> buf) {
+        private void generateTrades(TimestampedSourceBuffer<Event> buf) {
             ThreadLocalRandom rnd = ThreadLocalRandom.current();
             long nowNanos = System.nanoTime();
             while (scheduledTimeNanos <= nowNanos) {
@@ -154,8 +154,8 @@ public final class TradeSource {
                 long price = getNextPrice(priceAndDelta, rnd) / MONEY_SCALE_FACTOR;
                 long tradeTimeNanos = scheduledTimeNanos - (maxLagNanos > 0 ? rnd.nextLong(maxLagNanos) : 0L);
                 long tradeTimeMillis = startTimeMillis + NANOSECONDS.toMillis(tradeTimeNanos - startTimeNanos);
-                Trade trade = new Trade(tradeTimeMillis, ticker, rnd.nextInt(1, 10) * LOT, price);
-                buf.add(trade, tradeTimeMillis);
+                Event event = new Event(tradeTimeMillis, ticker, rnd.nextInt(1, 10) * LOT, price);
+                buf.add(event, tradeTimeMillis);
                 scheduledTimeNanos += emitPeriodNanos;
                 if (scheduledTimeNanos > nowNanos) {
                     // Refresh current time before checking against scheduled time
@@ -182,7 +182,7 @@ public final class TradeSource {
 
         private static List<String> loadTickers(long numTickers) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    TradeSource.class.getResourceAsStream("/nasdaqlisted.txt"), UTF_8))) {
+                    EventSource.class.getResourceAsStream("/nasdaqlisted.txt"), UTF_8))) {
                 return reader.lines()
                         .skip(1)
                         .limit(numTickers)

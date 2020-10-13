@@ -24,7 +24,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  * Displays a live bar chart of each stock and its current trading volume
  * on the simulated stock exchange.
  */
-public class TradingVolumeGui {
+public class EventVolumeGui {
     private static final int WINDOW_X = 100;
     private static final int WINDOW_Y = 100;
     private static final int WINDOW_WIDTH = 1200;
@@ -34,7 +34,7 @@ public class TradingVolumeGui {
     private final IMap<String, Long> hzMap;
     private UUID entryListenerId;
 
-    public TradingVolumeGui(IMap<String, Long> hzMap) {
+    public EventVolumeGui(IMap<String, Long> hzMap) {
         this.hzMap = hzMap;
         EventQueue.invokeLater(this::startGui);
     }

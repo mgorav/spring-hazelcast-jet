@@ -40,7 +40,7 @@ import static java.util.stream.Collectors.joining;
  * step we configured. This is why the second level uses a tumbling window
  * with size equal to the first level's sliding step.
  */
-public class TopNStocks {
+public class TopNEvents {
 
     private static final int JOB_DURATION = 15;
 
@@ -55,12 +55,12 @@ public class TopNStocks {
                 topN(5, comparingValue.reversed()),
                 TopNResult::new);
 
-        p.readFrom(TradeSource.tradeStream(500, 6_000))
+        p.readFrom(EventSource.tradeStream(500, 6_000))
                 .withNativeTimestamps(1_000)
-                .groupingKey(Trade::getTicker)
+                .groupingKey(Event::getTicker)
                 .window(sliding(10_000, 1_000))
                 // aggregate to create trend for each ticker
-                .aggregate(linearTrend(Trade::getTime, Trade::getPrice))
+                .aggregate(linearTrend(Event::getTime, Event::getPrice))
                 .window(tumbling(1_000))
                 // 2nd aggregation: choose top-N trends from previous aggregation
                 .aggregate(aggrOpTopN)
