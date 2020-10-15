@@ -85,7 +85,7 @@ public final class DataHealthStatusGui {
         rootPanel.setBorder(new EmptyBorder(BORDER_SIZE, BORDER_SIZE, BORDER_SIZE, BORDER_SIZE));
         BoxLayout layout = new BoxLayout(rootPanel, Y_AXIS);
         rootPanel.setLayout(layout);
-        rootPanel.add(new JLabel("Data Helath Event Transaction ID: status"));
+        rootPanel.add(new JLabel("Data Health Event Transaction ID: status"));
         rootPanel.add(new JLabel("---------------------"));
         Arrays.setAll(labels, i -> new JLabel());
         for (JLabel l : labels) {
