@@ -68,3 +68,5 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
  Run EventVolumeUI to see things in action:
  
  ![Swagger](./EventProcessing.gif) 
+ 
+ **NOTE** The outcome can also be visualized using [Viz.js](http://viz-js.com)
