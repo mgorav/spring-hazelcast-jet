@@ -70,7 +70,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
     - boolean tryProcess (int ordinal,Object item)
       - process incoming item and emit new items by populating the outbox
     - boolean complete()
-       - called after all upstream processor are also completed. Typically used for sources and batch operations such as group by and distict
+       - called after all upstream processor are also completed. Typically used for sources and batch operations such as group by and distinct.
     - no-coperative processors may block indefintely
     - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
   
