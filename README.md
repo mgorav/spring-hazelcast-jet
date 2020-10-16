@@ -49,13 +49,17 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
    - DSL which through planner and converted to DAG plan for execution
    ```bash
    Start executing job '051c-b771-6680-0001', execution 051c-b771-6681-0001, execution graph in DOT format:
+ 
   digraph DAG {
   	"trade-source" [localParallelism=1];
+  	"trade-source-add-timestamps" [localParallelism=1];
   	"map-stateful-keyed" [localParallelism=16];
-  	"mapSink(volume-by-stock)" [localParallelism=1];
-  	"trade-source" -> "map-stateful-keyed" [label="distributed-partitioned", queueSize=1024];
-  	"map-stateful-keyed" -> "mapSink(volume-by-stock)" [label="partitioned", queueSize=1024];
+  	"mapSink(transactionStatus)" [localParallelism=1];
+  	"trade-source" -> "trade-source-add-timestamps" [label="isolated", queueSize=1024];
+  	"trade-source-add-timestamps" -> "map-stateful-keyed" [label="distributed-partitioned", queueSize=1024];
+  	"map-stateful-keyed" -> "mapSink(transactionStatus)" [label="partitioned", queueSize=1024];
   }
+  
   ```
    
  ![GraphView](./graph-view.png) 
