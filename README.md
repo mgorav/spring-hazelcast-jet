@@ -58,8 +58,11 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
     - boolean complete()
        - called after all upstream processor are also completed. Typically used for sources and batch operations such as group by and distict
     - no-coperative processors may block indefintely
-    - coperative processor must respect Outbox when emitting and yield it Outbox is already full
-    
+    - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
+ 
+ ## JOB As Service
+ ![Swagger](./swagger-ui.png)     
+  
  ## Live Event Processing Using Hazelcast JET
  The project shows two scenarios:
  - Sliding Window
@@ -69,11 +72,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
  
  ![Swagger](./EventProcessing.gif) 
  
- ## Live data health events processing
- The below video describes simulation and processing of "Data Health Event Processing" live. To see things in action just run the class *DataHealthTracking*
- ![Data Health Event Processing](./DataHealthEventProcessing.gif) 
- 
- 
- 
+ ## Live events processing
+ ![Swagger](./Data-Health-Event-Processing.gif) 
  
  **NOTE** The outcome can also be visualized using [Viz.js](http://viz-js.com)
