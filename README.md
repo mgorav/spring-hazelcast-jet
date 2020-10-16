@@ -57,6 +57,10 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
   	"map-stateful-keyed" -> "mapSink(volume-by-stock)" [label="partitioned", queueSize=1024];
   }
   ```
+   
+ ![GraphView](./graph-view.png) 
+ **NOTE** The outcome can also be visualized using [Viz.js](http://viz-js.com)
+  
    - Batch & streaming
 - Adds distributed support for the java.util.stream API for Hazelcast Map, List and Cache
   - supports operations such as map(), flatmap(), filter(), reduce(), collect(), sorted(), distrinct()
@@ -89,7 +93,3 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
  - blue - data health event processed
  - red - data health event failed
  ![Swagger](./Data-Health-Event-Processing.gif) 
-
- **NOTE** The outcome can also be visualized using [Viz.js](http://viz-js.com)
- 
- ![Swagger](./graph-view.png) 
