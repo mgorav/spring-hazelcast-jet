@@ -1,4 +1,15 @@
 ## Hazelcast Jet + Spring BOOT + Event Processing (Micro-Service) = Low Cost With High Performance Event Processing
+This blog aims to explore, Hazelcast JET. Hazelcast Jet is a distributed data processing engine. This engine treats “data as streams”. Further, this engine, can process data that is stored in “database” or “files” as well as data that is streamed by Kafka
+
+This engine is capable of performing aggregate functions over infinite data streams by dividing the streams into subsets and applying aggregation over each subset, termed as “windowing”
+
+Jet can be deployed in a cluster of machines and then submit data processing jobs to it. Jet will make all the members of the cluster automatically process the data. Each member of the cluster consumes part of the data, and that makes it easy to scale up to really high level of throughput. 
+
+Following are the typical usecases for Hazelcast Jet:
+1.	Real-Time stream Processing
+2.	Fast Batch Processing
+3.	Processing Java 8 Streams in a distributed way
+4.	Data processing in Microservices
 
 This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
 
