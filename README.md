@@ -89,5 +89,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
  - blue - data health event processed
  - red - data health event failed
  ![Swagger](./Data-Health-Event-Processing.gif) 
- 
+
  **NOTE** The outcome can also be visualized using [Viz.js](http://viz-js.com)
+ 
+ ![Swagger](./graph-view.png) 
