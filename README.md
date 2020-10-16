@@ -20,6 +20,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ![Swagger](./swagger-ui.png) 
 
+##### Developer Notes
 Hazelcast jet is a distributed computing platform for fast processing of bit data sets. Jet is based on a parallel core engine allowing data-intensive applications to operate at near real-time speeds. It provides:
 - Performance - low-latency at scale
 - Highly optimized reading from and writing to IMDG
