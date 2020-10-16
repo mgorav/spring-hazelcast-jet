@@ -84,7 +84,7 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
  ![Swagger](./EventProcessing.gif) 
  
  ## Live events processing
- Refer to by [Data Health As Service](https://github.com/mgorav/data-health-service). In the project, I am simulating Data Health Event and interpreting them live:
+ Refer to my blog [Data Health As Service](https://github.com/mgorav/data-health-service). In the project, I am simulating Data Health Event and interpreting them live:
  - black - data health event arrived
  - blue - data health event processed
  - red - data health event failed
