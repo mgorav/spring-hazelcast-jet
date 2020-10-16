@@ -12,10 +12,12 @@ Following are the typical usecases for Hazelcast Jet:
 4.	Data processing in Microservices
 
 This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
-
+### Hazelcast job as service
+Following example, shows the REST approach towards Hazelcast job as service.
 ```bash
 http://localhost:8080/swagger-ui/index.html
 ```
+
 ![Swagger](./swagger-ui.png) 
 
 Hazelcast jet is a distributed computing platform for fast processing of bit data sets. Jet is based on a parallel core engine allowing data-intensive applications to operate at near real-time speeds. It provides:
@@ -70,9 +72,6 @@ Hazelcast jet is a distributed computing platform for fast processing of bit dat
        - called after all upstream processor are also completed. Typically used for sources and batch operations such as group by and distict
     - no-coperative processors may block indefintely
     - coperative processor must respect Outbox when emitting and yield it OUtbox is already full
- 
- ## JOB As Service
- ![Swagger](./swagger-ui.png)     
   
  ## Live Event Processing Using Hazelcast JET
  The project shows two scenarios:
