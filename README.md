@@ -11,9 +11,8 @@ Following are the typical usecases for Hazelcast Jet:
 3.	Processing Java 8 Streams in a distributed way
 4.	Data processing in Microservices
 
-This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
 ### Hazelcast job as service
-Following example, shows the REST approach towards Hazelcast job as service.
+This is self-contained project. Once the project has been successfully started, the swagger UI can be accessed using below url:
 ```bash
 http://localhost:8080/swagger-ui/index.html
 ```
